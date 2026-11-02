@@ -9,85 +9,81 @@ interface ItemMatkulProps {
 }
 
 const hariColor: Record<string, string> = {
-  Senin:  "linear-gradient(135deg, #667eea, #764ba2)",
-  Selasa: "linear-gradient(135deg, #f093fb, #f5576c)",
-  Rabu:   "linear-gradient(135deg, #4facfe, #00f2fe)",
-  Kamis:  "linear-gradient(135deg, #43e97b, #38f9d7)",
-  Jumat:  "linear-gradient(135deg, #fa709a, #fee140)",
-  Sabtu:  "linear-gradient(135deg, #a18cd1, #fbc2eb)",
+  Senin:  "#dbeafe",
+  Selasa: "#fce7f3",
+  Rabu:   "#dcfce7",
+  Kamis:  "#fef9c3",
+  Jumat:  "#ede9fe",
+  Sabtu:  "#f3f4f6",
+};
+
+const hariTextColor: Record<string, string> = {
+  Senin:  "#1d4ed8",
+  Selasa: "#be185d",
+  Rabu:   "#15803d",
+  Kamis:  "#92400e",
+  Jumat:  "#6d28d9",
+  Sabtu:  "#374151",
 };
 
 function ItemMatkul({ kode, nama, sks, hari }: ItemMatkulProps) {
-  const gradient = hariColor[hari] ?? "linear-gradient(135deg, #667eea, #764ba2)";
+  const bgColor = hariColor[hari] ?? "#f3f4f6";
+  const textColor = hariTextColor[hari] ?? "#374151";
 
   return (
     <div
       style={{
-        padding: "16px 20px",
-        background: "rgba(255,255,255,0.04)",
-        border: "1px solid rgba(255,255,255,0.1)",
-        borderRadius: "12px",
+        padding: "14px 16px",
+        background: "#ffffff",
+        border: "1px solid #e5e7eb",
+        borderRadius: "8px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease",
+        transition: "background 0.15s ease",
         cursor: "default",
       }}
       onMouseEnter={(e) => {
-        const el = e.currentTarget as HTMLDivElement;
-        el.style.transform = "translateX(6px)";
-        el.style.background = "rgba(255,255,255,0.08)";
-        el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.3)";
+        (e.currentTarget as HTMLDivElement).style.background = "#f9fafb";
       }}
       onMouseLeave={(e) => {
-        const el = e.currentTarget as HTMLDivElement;
-        el.style.transform = "translateX(0)";
-        el.style.background = "rgba(255,255,255,0.04)";
-        el.style.boxShadow = "none";
+        (e.currentTarget as HTMLDivElement).style.background = "#ffffff";
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-        {/* Aksen warna kiri berdasarkan hari */}
-        <div
+      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        {/* Hari badge */}
+        <span
           style={{
-            width: "4px",
-            height: "40px",
+            background: bgColor,
+            color: textColor,
+            fontSize: "11px",
+            fontWeight: "600",
+            padding: "3px 8px",
             borderRadius: "4px",
-            background: gradient,
             flexShrink: 0,
+            minWidth: "52px",
+            textAlign: "center",
           }}
-        />
+        >
+          {hari}
+        </span>
+
         <div>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
-            <span
-              style={{
-                background: gradient,
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                fontWeight: "800",
-                fontSize: "14px",
-              }}
-            >
-              {kode}
-            </span>
-            <span style={{ color: "#e2e8f0", fontSize: "14px", fontWeight: "500" }}>{nama}</span>
-          </div>
-          <div style={{ fontSize: "12px", color: "#94a3b8" }}>
-            📅 {hari}
-          </div>
+          <span style={{ fontSize: "12px", color: "#9ca3af", marginRight: "6px" }}>
+            {kode}
+          </span>
+          <span style={{ fontSize: "14px", color: "#111827", fontWeight: "500" }}>
+            {nama}
+          </span>
         </div>
       </div>
 
       <span
         style={{
-          background: gradient,
-          color: "#fff",
-          padding: "5px 14px",
-          borderRadius: "999px",
           fontSize: "12px",
-          fontWeight: "700",
+          color: "#6b7280",
           flexShrink: 0,
-          boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+          marginLeft: "12px",
         }}
       >
         {sks} SKS

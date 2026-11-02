@@ -7,22 +7,22 @@ interface BadgeSkillProps {
 
 const levelConfig = {
   Pemula: {
-    bg: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    glow: "0 4px 15px rgba(102, 126, 234, 0.5)",
-    icon: "🌱",
-    ring: "#a78bfa",
+    bg: "#f3f4f6",
+    color: "#6b7280",
+    border: "#e5e7eb",
+    dot: "#9ca3af",
   },
   Menengah: {
-    bg: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-    glow: "0 4px 15px rgba(245, 87, 108, 0.5)",
-    icon: "⚡",
-    ring: "#f472b6",
+    bg: "#eff6ff",
+    color: "#1d4ed8",
+    border: "#bfdbfe",
+    dot: "#3b82f6",
   },
   Mahir: {
-    bg: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-    glow: "0 4px 15px rgba(79, 172, 254, 0.5)",
-    icon: "🔥",
-    ring: "#38bdf8",
+    bg: "#f0fdf4",
+    color: "#15803d",
+    border: "#bbf7d0",
+    dot: "#22c55e",
   },
 };
 
@@ -30,48 +30,34 @@ function BadgeSkill({ namaSkill, level }: BadgeSkillProps) {
   const config = levelConfig[level];
 
   return (
-    <div
+    <span
       style={{
         display: "inline-flex",
         alignItems: "center",
-        gap: "6px",
+        gap: "5px",
         background: config.bg,
-        boxShadow: config.glow,
-        color: "#fff",
-        padding: "6px 14px",
-        borderRadius: "999px",
+        color: config.color,
+        border: `1px solid ${config.border}`,
+        padding: "4px 10px",
+        borderRadius: "6px",
         fontSize: "12px",
-        fontWeight: "700",
-        letterSpacing: "0.5px",
-        border: `1px solid ${config.ring}`,
-        transition: "transform 0.2s ease, box-shadow 0.2s ease",
+        fontWeight: "500",
         cursor: "default",
         userSelect: "none",
       }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px) scale(1.05)";
-        (e.currentTarget as HTMLDivElement).style.boxShadow = config.glow.replace("0.5)", "0.8)");
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLDivElement).style.transform = "translateY(0) scale(1)";
-        (e.currentTarget as HTMLDivElement).style.boxShadow = config.glow;
-      }}
     >
-      <span style={{ fontSize: "13px" }}>{config.icon}</span>
-      <span>{namaSkill}</span>
       <span
         style={{
-          fontSize: "10px",
-          opacity: 0.85,
-          background: "rgba(255,255,255,0.2)",
-          padding: "1px 6px",
-          borderRadius: "999px",
-          marginLeft: "2px",
+          width: "6px",
+          height: "6px",
+          borderRadius: "50%",
+          background: config.dot,
+          flexShrink: 0,
         }}
-      >
-        {level}
-      </span>
-    </div>
+      />
+      {namaSkill}
+      <span style={{ opacity: 0.65, fontSize: "11px" }}>· {level}</span>
+    </span>
   );
 }
 

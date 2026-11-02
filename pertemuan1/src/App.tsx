@@ -5,89 +5,78 @@ import KartuProyek from "./KartuProyek";
 
 /* ─── Data Mata Kuliah ──────────────────────────────────────────── */
 const daftarPraktikum = [
-  { id: 101, kode: "IF211", nama: "Pemrograman Web (React & Laravel)",   sks: 3, hari: "Senin"  },
-  { id: 102, kode: "IF212", nama: "Sistem Basis Data (PostgreSQL)",       sks: 3, hari: "Rabu"   },
-  { id: 103, kode: "IF213", nama: "Rekayasa Perangkat Lunak Terapan",     sks: 3, hari: "Kamis"  },
-  { id: 104, kode: "IF214", nama: "Arsitektur Sistem Terdistribusi",      sks: 2, hari: "Jumat"  },
+  { id: 101, kode: "IF301", nama: "Praktikum Pemrograman II",               sks: 2, hari: "Senin"  },
+  { id: 102, kode: "IF302", nama: "Verifikasi & Validasi Perangkat Lunak",  sks: 2, hari: "Senin"  },
+  { id: 103, kode: "IF303", nama: "Praktikum Web",                          sks: 2, hari: "Selasa" },
+  { id: 104, kode: "IF304", nama: "Praktikum Sistem Berorientasi Objek",    sks: 2, hari: "Selasa" },
+  { id: 105, kode: "IF305", nama: "Perancangan Interaksi",                  sks: 3, hari: "Rabu"   },
+  { id: 106, kode: "IF306", nama: "Bahasa Inggris",                         sks: 2, hari: "Rabu"   },
+  { id: 107, kode: "IF307", nama: "Intelegensia Buatan",                    sks: 3, hari: "Kamis"  },
+  { id: 108, kode: "IF308", nama: "Internet of Things",                     sks: 3, hari: "Kamis"  },
+  { id: 109, kode: "IF309", nama: "Perancangan Sistem",                     sks: 3, hari: "Kamis"  },
 ];
 
 /* ─── Data Proyek Portfolio ─────────────────────────────────────── */
 const daftarProyek = [
   {
     id: 1,
-    judul: "ReactMart E-Commerce",
+    judul: "Website Yearbook SMAN 1 Kaliwedi",
     deskripsi:
-      "Platform belanja online full-stack dengan fitur keranjang dinamis, autentikasi JWT, dan dashboard admin real-time menggunakan React + Node.js.",
-    tagar: ["React", "Node.js", "MongoDB", "JWT", "Redux"],
-    repoUrl: "https://github.com/akbarputrapamungkas/PW2026_243040093",
-    gradientAccent: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    emoji: "🛒",
+      "Website portofolio alumni kelas IPA 1 SMAN 1 Kaliwedi yang dirancang modern, interaktif, dan responsif. Menampilkan galeri foto, profil siswa, dan kenangan kelas.",
+    tagar: ["HTML", "TailwindCSS", "JavaScript"],
+    repoUrl: "https://akbarputrapamungkas.github.io/yearbook-SMANKA/vngrd-science-one/",
+    emoji: "📸",
   },
   {
     id: 2,
-    judul: "TaskFlow — Manajemen Tugas",
+    judul: "Tugas Kuliah Internet & Web",
     deskripsi:
-      "Aplikasi manajemen tugas berbasis Kanban dengan drag-and-drop, notifikasi real-time via WebSocket, dan sinkronisasi antar perangkat.",
-    tagar: ["Vue.js", "Laravel", "PostgreSQL", "WebSocket", "Docker"],
-    repoUrl: "https://github.com/akbarputrapamungkas/PW2026_243040093",
-    gradientAccent: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-    emoji: "📋",
+      "Kumpulan repositori dan project praktikum kuliah Internet & Teknologi Web di Universitas Pasundan. Berisi berbagai latihan dan tugas pemrograman web.",
+    tagar: ["HTML", "CSS", "JavaScript"],
+    repoUrl: "https://github.com/akbarputrapamungkas/itw2024_243040093",
+    emoji: "📚",
   },
   {
     id: 3,
-    judul: "GeoTrack — Peta Interaktif",
+    judul: "Website Resmi Menwa UNPAS",
     deskripsi:
-      "Aplikasi visualisasi data geospasial menggunakan Leaflet.js dan MapboxGL. Menampilkan peta panas, cluster marker, dan analitik wilayah.",
-    tagar: ["TypeScript", "Leaflet.js", "FastAPI", "Redis", "Python"],
-    repoUrl: "https://github.com/akbarputrapamungkas/PW2026_243040093",
-    gradientAccent: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-    emoji: "🗺️",
+      "Website profil resmi Resimen Mahasiswa (Menwa) Universitas Pasundan sebagai pusat informasi publik. Menampilkan berita, kegiatan, dan profil organisasi.",
+    tagar: ["TailwindCSS", "HTML", "CSS"],
+    repoUrl: "https://www.menwaunpas.com",
+    emoji: "🎖️",
   },
   {
     id: 4,
-    judul: "AI Chat — Asisten Belajar",
+    judul: "Home Server & CI/CD Infrastructure",
     deskripsi:
-      "Chatbot berbasis LLM untuk membantu mahasiswa belajar pemrograman. Mendukung code highlighting, konteks percakapan panjang, dan mode evaluasi kode.",
-    tagar: ["Next.js", "OpenAI API", "Prisma", "Vercel", "tRPC"],
+      "Otomatisasi deployment server lokal, konfigurasi SSL Nginx Reverse Proxy, monitoring status dengan Grafana, dan deploy web otomatis sebagai production infrastructure.",
+    tagar: ["Docker", "Nginx", "Linux"],
     repoUrl: "https://github.com/akbarputrapamungkas/PW2026_243040093",
-    gradientAccent: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-    emoji: "🤖",
+    emoji: "🖥️",
   },
 ];
 
 /* ─── Helper: Section Heading ───────────────────────────────────── */
-function SectionHeading({ children, accent }: { children: React.ReactNode; accent: string }) {
+function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: "24px" }}>
+    <div style={{ marginBottom: "20px" }}>
       <h2
         style={{
           margin: 0,
-          fontSize: "20px",
-          fontWeight: "800",
-          color: "#f1f5f9",
-          letterSpacing: "0.3px",
-          display: "flex",
-          alignItems: "center",
-          gap: "10px",
+          fontSize: "15px",
+          fontWeight: "600",
+          color: "#111827",
+          letterSpacing: "0.6px",
+          textTransform: "uppercase",
         }}
       >
-        <span
-          style={{
-            display: "inline-block",
-            width: "4px",
-            height: "22px",
-            borderRadius: "4px",
-            background: accent,
-            flexShrink: 0,
-          }}
-        />
         {children}
       </h2>
       <div
         style={{
-          marginTop: "10px",
+          marginTop: "8px",
           height: "1px",
-          background: "linear-gradient(90deg, rgba(255,255,255,0.12), transparent)",
+          background: "#e5e7eb",
         }}
       />
     </div>
@@ -98,7 +87,7 @@ function SectionHeading({ children, accent }: { children: React.ReactNode; accen
 function App() {
   const notifikasiSapaan = () => {
     alert(
-      "🎉 Selamat datang di Modul 1!\nAnda berhasil menguasai fondasi arsitektur React JS.\nTeruslah berkarya! 🚀"
+      "Selamat datang di Modul 1!\nAnda berhasil menguasai fondasi arsitektur React JS.\nTeruslah berkarya!"
     );
   };
 
@@ -106,93 +95,59 @@ function App() {
     <div
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #0a0e1a 0%, #0f172a 40%, #0d1117 100%)",
+        background: "#f9fafb",
         fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
-        color: "#e2e8f0",
+        color: "#111827",
       }}
     >
-      {/* ── Animated background particles (pure CSS via pseudo blobs) */}
-      <div style={{ position: "fixed", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
-        {[
-          { top: "10%", left: "5%",  w: 300, bg: "rgba(102,126,234,0.06)" },
-          { top: "60%", left: "80%", w: 250, bg: "rgba(79,172,254,0.06)"  },
-          { top: "35%", left: "50%", w: 200, bg: "rgba(240,147,251,0.05)" },
-        ].map((b, i) => (
-          <div
-            key={i}
-            style={{
-              position: "absolute",
-              top: b.top, left: b.left,
-              width: b.w, height: b.w,
-              borderRadius: "50%",
-              background: b.bg,
-              filter: "blur(80px)",
-            }}
-          />
-        ))}
-      </div>
-
       {/* ── Main Container */}
-      <div style={{ maxWidth: "900px", margin: "0 auto", padding: "40px 24px", position: "relative", zIndex: 1 }}>
+      <div style={{ maxWidth: "760px", margin: "0 auto", padding: "48px 24px" }}>
 
-        {/* ── Hero Header ── */}
-        <header style={{ textAlign: "center", marginBottom: "56px" }}>
-          <div
+        {/* ── Header ── */}
+        <header style={{ marginBottom: "48px" }}>
+          <p
             style={{
-              display: "inline-block",
-              padding: "6px 16px",
-              background: "rgba(102,126,234,0.15)",
-              border: "1px solid rgba(102,126,234,0.3)",
-              borderRadius: "999px",
-              fontSize: "12px",
-              fontWeight: "700",
-              color: "#a5b4fc",
-              letterSpacing: "1.2px",
-              textTransform: "uppercase",
-              marginBottom: "20px",
+              margin: "0 0 8px 0",
+              fontSize: "13px",
+              color: "#6b7280",
+              letterSpacing: "0.5px",
             }}
           >
-            🎓 Laboratorium Informatika · Modul 1
-          </div>
+            Laboratorium Informatika · Modul 1
+          </p>
           <h1
             style={{
-              margin: "0 0 12px 0",
-              fontSize: "clamp(28px, 5vw, 42px)",
-              fontWeight: "900",
-              background: "linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              lineHeight: 1.2,
-              letterSpacing: "-0.5px",
+              margin: "0 0 6px 0",
+              fontSize: "26px",
+              fontWeight: "700",
+              color: "#111827",
+              lineHeight: 1.3,
             }}
           >
             Praktikum Pemrograman Web
           </h1>
-          <p style={{ margin: 0, color: "#64748b", fontSize: "15px", fontWeight: "400" }}>
+          <p style={{ margin: 0, color: "#6b7280", fontSize: "14px" }}>
             Pengenalan React JS &amp; Vite — Arsitektur Komponen Modern
           </p>
+          <div style={{ marginTop: "20px", height: "1px", background: "#e5e7eb" }} />
         </header>
 
         {/* ── Section 1: Profil ── */}
-        <section style={{ marginBottom: "48px" }}>
-          <SectionHeading accent="linear-gradient(135deg, #667eea, #764ba2)">
-            👤 Profil Mahasiswa Praktikan
-          </SectionHeading>
+        <section style={{ marginBottom: "44px" }}>
+          <SectionHeading>Profil Mahasiswa</SectionHeading>
           <KartuProfil
             nama="Akbar Putra Pamungkas"
             npm="243040093"
-            kelas="IF-Praktikum"
+            kelas="IF-Praktikum-E"
             status="Aktif"
             fotoUrl=""
           />
         </section>
 
         {/* ── Section 2: Daftar Matkul ── */}
-        <section style={{ marginBottom: "48px" }}>
-          <SectionHeading accent="linear-gradient(135deg, #4facfe, #00f2fe)">
-            📚 Daftar Rencana Praktikum Semester
-          </SectionHeading>
-          <div style={{ display: "grid", gap: "10px" }}>
+        <section style={{ marginBottom: "44px" }}>
+          <SectionHeading>Jadwal Mata Kuliah Semester Ini</SectionHeading>
+          <div style={{ display: "grid", gap: "8px" }}>
             {daftarPraktikum.map((matkul) => (
               <ItemMatkul key={matkul.id} {...matkul} />
             ))}
@@ -200,15 +155,13 @@ function App() {
         </section>
 
         {/* ── Section 3: Showcase Portfolio ── */}
-        <section style={{ marginBottom: "48px" }}>
-          <SectionHeading accent="linear-gradient(135deg, #f093fb, #f5576c)">
-            🚀 Showcase Portofolio Mini
-          </SectionHeading>
+        <section style={{ marginBottom: "44px" }}>
+          <SectionHeading>Showcase Portofolio Mini</SectionHeading>
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(380px, 1fr))",
-              gap: "16px",
+              gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))",
+              gap: "12px",
             }}
           >
             {daftarProyek.map((proyek) => (
@@ -222,37 +175,39 @@ function App() {
           <button
             onClick={notifikasiSapaan}
             style={{
-              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              background: "#1d4ed8",
               color: "#fff",
-              padding: "14px 36px",
+              padding: "10px 28px",
               border: "none",
-              borderRadius: "12px",
+              borderRadius: "8px",
               cursor: "pointer",
-              fontWeight: "800",
-              fontSize: "15px",
-              letterSpacing: "0.5px",
-              boxShadow: "0 8px 30px rgba(102, 126, 234, 0.4)",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease",
+              fontWeight: "600",
+              fontSize: "14px",
+              transition: "background 0.2s ease",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-3px) scale(1.03)";
-              (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 12px 40px rgba(102,126,234,0.6)";
+              (e.currentTarget as HTMLButtonElement).style.background = "#1e40af";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0) scale(1)";
-              (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 8px 30px rgba(102,126,234,0.4)";
+              (e.currentTarget as HTMLButtonElement).style.background = "#1d4ed8";
             }}
           >
-            ✨ Uji Interaktivitas Event
+            Uji Interaktivitas Event
           </button>
-          <p style={{ marginTop: "12px", fontSize: "12px", color: "#475569" }}>
+          <p style={{ marginTop: "8px", fontSize: "12px", color: "#9ca3af" }}>
             Klik untuk konfirmasi penguasaan modul
           </p>
         </div>
 
         {/* Footer */}
-        <footer style={{ textAlign: "center", borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "20px" }}>
-          <p style={{ margin: 0, fontSize: "12px", color: "#334155" }}>
+        <footer
+          style={{
+            textAlign: "center",
+            borderTop: "1px solid #e5e7eb",
+            paddingTop: "20px",
+          }}
+        >
+          <p style={{ margin: 0, fontSize: "12px", color: "#9ca3af" }}>
             © 2026 · PW2026_243040093 · Praktikum Pemrograman Web · Informatika
           </p>
         </footer>
