@@ -1,0 +1,226 @@
+/* Styling Utama / Wadah */
+.wadah {
+  max-width: 680px;
+  margin: 50px auto;
+  padding: 0 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1F2937;
+  background-color: #F8FAFC;
+  min-height: 100vh;
+}
+
+/* Judul & Subjudul */
+.judul {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+
+.subjudul {
+  color: #64748B;
+  font-size: 15px;
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+/* Komponen Kartu yang Lebih Elegan */
+.kartu {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kartu:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+.kartu h2 {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 16px;
+}
+
+/* Baris & Input Form */
+.baris {
+  display: flex;
+  gap: 10px;
+}
+
+.input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #F8FAFC;
+}
+
+.input:focus {
+  border-color: #3B82F6;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Desain Tombol Interaktif */
+.tombol {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #3B82F6;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+}
+
+.tombol:hover {
+  background: #2563EB;
+  box-shadow: 0 6px 8px -1px rgba(59, 130, 246, 0.3);
+}
+
+.tombol:active {
+  transform: scale(0.98);
+}
+
+.tombol:disabled {
+  background: #E2E8F0;
+  color: #94A3B8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.tombol-merah {
+  background: #EF4444;
+  box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2);
+}
+
+.tombol-merah:hover {
+  background: #DC2626;
+  box-shadow: 0 6px 8px -1px rgba(239, 68, 68, 0.3);
+}
+
+.tombol-kecil {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+/* Container & Tombol Filter */
+.filter-container {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+  background: #F1F5F9;
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.tombol-filter {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748B;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tombol-filter:hover {
+  color: #1E293B;
+}
+
+.tombol-filter.aktif {
+  background: #FFFFFF;
+  color: #2563EB;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Daftar Tugas & Item */
+.daftar {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #F1F5F9;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.item:hover {
+  background-color: #F8FAFC;
+}
+
+.item span {
+  flex: 1;
+  font-size: 14px;
+  color: #334155;
+  transition: color 0.2s;
+}
+
+.selesai {
+  text-decoration: line-through;
+  color: #94A3B8 !important;
+}
+
+/* Status Kosong & Galat */
+.kosong {
+  color: #94A3B8;
+  text-align: center;
+  font-style: italic;
+  padding: 24px 0;
+  font-size: 14px;
+}
+
+.galat {
+  color: #EF4444;
+  font-size: 13px;
+  margin: 6px 0 0;
+  font-weight: 500;
+}
+
+.ringkasan {
+  font-size: 14px;
+  color: #64748B;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+/* Tombol Hapus Semua Selesai */
+.tombol-hapus-semua {
+  width: 100%;
+  margin-top: 16px;
+  background: #FEF2F2;
+  color: #DC2626;
+  border: 1px dashed #FCA5A5;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tombol-hapus-semua:hover {
+  background: #FEE2E2;
+}
