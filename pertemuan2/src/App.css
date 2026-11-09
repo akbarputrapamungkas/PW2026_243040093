@@ -224,3 +224,239 @@
 .tombol-hapus-semua:hover {
   background: #FEE2E2;
 }
+
+/* =========================================
+   Styling Navigasi Tab Modul
+   ========================================= */
+.tab-navigasi {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  background: #E2E8F0;
+  padding: 6px;
+  border-radius: 14px;
+}
+
+.tombol-tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #475569;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tombol-tab:hover {
+  color: #0F172A;
+}
+
+.tombol-tab.aktif {
+  background: #FFFFFF;
+  color: #2563EB;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================
+   Styling Tugas 3: Catatan Keuangan Mini
+   ========================================= */
+.modul-keuangan {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-keuangan {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-baris {
+  display: flex;
+  gap: 12px;
+}
+
+.form-grup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-grup label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.tombol-simpan {
+  margin-top: 8px;
+  background-color: #059669;
+  box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.2);
+}
+
+.tombol-simpan:hover {
+  background-color: #047857;
+  box-shadow: 0 6px 8px -1px rgba(5, 150, 105, 0.3);
+}
+
+/* Ringkasan Saldo */
+.kartu-ringkasan-saldo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.saldo-utama {
+  text-align: center;
+  padding: 18px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+}
+
+.saldo-utama span {
+  font-size: 13px;
+  color: #64748B;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.saldo-utama h3 {
+  font-size: 32px;
+  margin: 6px 0 0;
+  font-weight: 800;
+}
+
+.detail-arus-kas {
+  display: flex;
+  gap: 12px;
+}
+
+.box-arus {
+  flex: 1;
+  padding: 14px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.box-arus.pemasukan {
+  background-color: #ECFDF5;
+  border: 1px solid #A7F3D0;
+}
+
+.box-arus.pengeluaran {
+  background-color: #FEF2F2;
+  border: 1px solid #FECACA;
+}
+
+.box-arus span {
+  font-size: 12px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.box-arus strong {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* Kriteria (d): Nominal Pemasukan Hijau & Pengeluaran Merah */
+.teks-hijau {
+  color: #10B981 !important;
+}
+
+.teks-merah {
+  color: #EF4444 !important;
+}
+
+/* Daftar & Item Transaksi */
+.daftar-transaksi {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-transaksi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #F8FAFC;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.item-transaksi:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.item-transaksi.border-hijau {
+  border-left: 5px solid #10B981;
+}
+
+.item-transaksi.border-merah {
+  border-left: 5px solid #EF4444;
+}
+
+.info-transaksi {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.keterangan-transaksi {
+  font-weight: 600;
+  color: #1E293B;
+  font-size: 14px;
+}
+
+.tanggal-transaksi {
+  font-size: 12px;
+  color: #94A3B8;
+}
+
+.nominal-dan-aksi {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nominal-teks {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Kriteria (e): Pesan Khusus Transaksi Kosong */
+.pesan-kosong-keuangan {
+  text-align: center;
+  padding: 32px 16px;
+  background-color: #F8FAFC;
+  border: 1.5px dashed #CBD5E1;
+  border-radius: 12px;
+  color: #64748B;
+}
+
+.pesan-kosong-keuangan p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 15px;
+  color: #334155;
+}
+
+.pesan-kosong-keuangan small {
+  display: block;
+  margin-top: 4px;
+  color: #94A3B8;
+  font-size: 13px;
+}

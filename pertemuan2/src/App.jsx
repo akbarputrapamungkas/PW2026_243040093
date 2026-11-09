@@ -4,8 +4,12 @@ import Kartu from "./Kartu";
 import Penghitung from "./penghitung"; 
 import FormTugas from "./FormTugas";
 import ItemTugas from "./ItemTugas";
+import CatatanKeuangan from "./CatatanKeuangan";
 
 function App() {
+  // State untuk berpindah tab antara Tugas 1 & 2 (Todo) dan Tugas 3 (Catatan Keuangan)
+  const [tabAktif, setTabAktif] = useState("todo");
+
   // 1. State utama: ambil dari localStorage atau gunakan data contoh
   const [daftarTugas, setDaftarTugas] = useState(() => {
     const dataTersimpan = localStorage.getItem("daftar-tugas");
@@ -23,13 +27,13 @@ function App() {
 
   // Efek A: dijalankan SEKALI saat App pertama kali tampil
   useEffect(() => {
-    console.log("Aplikasi Daftar Tugas siap digunakan!");
+    console.log("Aplikasi Praktikum Modul 2 siap digunakan!");
   }, []);
 
   // Efek B: perbarui judul tab peramban setiap daftar tugas berubah
   useEffect(() => {
     const sisa = daftarTugas.filter((tugas) => !tugas.selesai).length;
-    document.title = `${sisa} Tugas Belum Selesai`;
+    document.title = `${sisa} Tugas Belum Selesai | Praktikum PW`;
   }, [daftarTugas]);
 
   // Efek C: simpan daftarTugas ke localStorage setiap kali berubah
@@ -75,67 +79,91 @@ function App() {
 
   return (
     <div className="wadah">
-      <h1 className="judul">Daftar Tugas Praktikum</h1>
+      <h1 className="judul">Praktikum Modul 2: React Lanjutan</h1>
       <p className="subjudul">
-        Laboratorium Informatika Modul 2: React Lanjutan
+        Laboratorium Informatika - Manipulasi State, Conditional Rendering & LocalStorage
       </p>
 
-      <Penghitung />
+      {/* Navigasi Tab antar Tugas Praktikum */}
+      <nav className="tab-navigasi">
+        <button
+          className={`tombol-tab ${tabAktif === "todo" ? "aktif" : ""}`}
+          onClick={() => setTabAktif("todo")}
+        >
+          📋 Tugas 1 & 2 (Daftar Tugas)
+        </button>
+        <button
+          className={`tombol-tab ${tabAktif === "keuangan" ? "aktif" : ""}`}
+          onClick={() => setTabAktif("keuangan")}
+        >
+          💰 Tugas 3 (Catatan Keuangan)
+        </button>
+      </nav>
 
-      <Kartu judul="Tambah Tugas Baru">
-        <FormTugas onTambah={tambahTugas} />
-      </Kartu>
+      {/* Konten Tab 1: Tugas 1 & Tugas 2 */}
+      {tabAktif === "todo" && (
+        <>
+          <Penghitung />
 
-      <Kartu judul="Daftar Tugas">
-        <p className="ringkasan">
-          {jumlahSelesai} dari {daftarTugas.length} tugas selesai
-        </p>
+          <Kartu judul="Tambah Tugas Baru">
+            <FormTugas onTambah={tambahTugas} />
+          </Kartu>
 
-        {/* Latihan 1: Tombol-tombol Filter */}
-        <div className="filter-container">
-          <button
-            className={`tombol-filter ${filter === "semua" ? "aktif" : ""}`}
-            onClick={() => setFilter("semua")}
-          >
-            Semua
-          </button>
-          <button
-            className={`tombol-filter ${filter === "belum" ? "aktif" : ""}`}
-            onClick={() => setFilter("belum")}
-          >
-            Belum Selesai
-          </button>
-          <button
-            className={`tombol-filter ${filter === "selesai" ? "aktif" : ""}`}
-            onClick={() => setFilter("selesai")}
-          >
-            Selesai
-          </button>
-        </div>
+          <Kartu judul="Daftar Tugas">
+            <p className="ringkasan">
+              {jumlahSelesai} dari {daftarTugas.length} tugas selesai
+            </p>
 
-        {/* Conditional rendering dengan ternary: tampilkan pesan jika kosong */}
-        {daftarTampil.length === 0 ? (
-          <p className="kosong">Tidak ada tugas pada kategori ini.</p>
-        ) : (
-          <ul className="daftar">
-            {daftarTampil.map((tugas) => (
-              <ItemTugas
-                key={tugas.id}
-                tugas={tugas}
-                onUbahStatus={ubahStatus}
-                onHapus={hapusTugas}
-              />
-            ))}
-          </ul>
-        )}
+            {/* Latihan 1: Tombol-tombol Filter dengan Dynamic Class */}
+            <div className="filter-container">
+              <button
+                className={`tombol-filter ${filter === "semua" ? "aktif" : ""}`}
+                onClick={() => setFilter("semua")}
+              >
+                Semua
+              </button>
+              <button
+                className={`tombol-filter ${filter === "belum" ? "aktif" : ""}`}
+                onClick={() => setFilter("belum")}
+              >
+                Belum Selesai
+              </button>
+              <button
+                className={`tombol-filter ${filter === "selesai" ? "aktif" : ""}`}
+                onClick={() => setFilter("selesai")}
+              >
+                Selesai
+              </button>
+            </div>
 
-        {/* Latihan 2: Tombol Hapus Semua Selesai (muncul jika ada min 1 tugas selesai) */}
-        {jumlahSelesai > 0 && (
-          <button className="tombol-hapus-semua" onClick={hapusTugasSelesai}>
-            Hapus Semua yang Selesai
-          </button>
-        )}
-      </Kartu>
+            {/* Conditional rendering dengan ternary: tampilkan pesan jika kosong */}
+            {daftarTampil.length === 0 ? (
+              <p className="kosong">Tidak ada tugas pada kategori ini.</p>
+            ) : (
+              <ul className="daftar">
+                {daftarTampil.map((tugas) => (
+                  <ItemTugas
+                    key={tugas.id}
+                    tugas={tugas}
+                    onUbahStatus={ubahStatus}
+                    onHapus={hapusTugas}
+                  />
+                ))}
+              </ul>
+            )}
+
+            {/* Latihan 2: Tombol Hapus Semua Selesai (HANYA muncul jika min 1 tugas selesai) */}
+            {jumlahSelesai > 0 && (
+              <button className="tombol-hapus-semua" onClick={hapusTugasSelesai}>
+                Hapus Semua yang Selesai ({jumlahSelesai})
+              </button>
+            )}
+          </Kartu>
+        </>
+      )}
+
+      {/* Konten Tab 2: Tugas 3 (Catatan Keuangan Mini) */}
+      {tabAktif === "keuangan" && <CatatanKeuangan />}
     </div>
   );
 }
