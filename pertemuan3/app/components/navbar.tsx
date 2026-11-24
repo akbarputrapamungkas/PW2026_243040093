@@ -7,6 +7,7 @@ const daftarLink = [
   { href: '/', label: 'Beranda' },
   { href: '/buku', label: 'Katalog Buku' },
   { href: '/tentang', label: 'Tentang' },
+  { href: '/kontak', label: 'Kontak' },
 ];
 
 export default function Navbar() {
